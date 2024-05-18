@@ -8,7 +8,9 @@ describe("Edit Address", () => {
   it("Edit address", () => {
     cy.login(user.email, user.password);
     cy.visit("/customer/address/");
-    cy.get('button[title="Save Address"]').click();
+    cy.get('button[title="Save Address"]', { timeout: 10000 })
+      .should("be.visible")
+      .click();
     cy.get("#telephone").type(user.address.phone);
     cy.get("#street_1").type(user.address.street);
     cy.get("#city").type(user.address.city);
