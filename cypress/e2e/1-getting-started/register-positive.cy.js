@@ -5,7 +5,7 @@ describe("Register Feature", () => {
     cy.visit("/");
   });
 
-  it("should create an account", () => {
+  it("Create an account", () => {
     cy.visit("/customer/account/create/");
     cy.get("#firstname").type(user.firstName);
     cy.get("#lastname").type(user.lastName);

@@ -3,6 +3,13 @@
   "password": "Qualityassurance123",
   "firstName": "Dwiki",
   "lastName": "Kurnia",
-  "name": "Dwiki Kurnia"
+  "name": "Dwiki Kurnia",
+  "address": {
+    "street": "The Varden",
+    "city": "Kota Bekasi",
+    "state": "Alaska",
+    "zip": "70182",
+    "phone": "08112312312"
+  }
 }
 
