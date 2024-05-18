@@ -1,23 +1,18 @@
-describe("Registration Feature", () => {
-  const baseUrl = "https://demowebshop.tricentis.com/register";
+const user = require("../../fixtures/user.json");
 
+describe("Register Feature", () => {
   beforeEach(() => {
-    cy.visit(baseUrl);
+    cy.visit("/");
   });
 
-  it("Register Positive Testing", () => {
-    const randomNum = Math.floor(Math.random() * 10000); // Generate a random number between 0 and 9999
-    const email = `dwiki.kurnia${randomNum}@yahoo.com`;
-
-    cy.get("#gender-male").check();
-    cy.get("#FirstName").type("Dwiki");
-    cy.get("#LastName").type("Kurnia");
-    cy.get("#Email").type(email);
-    cy.get("#Password").type("qualityassurance123");
-    cy.get("#ConfirmPassword").type("qualityassurance123");
-    cy.get("#register-button").click();
-
-    // Verify successful registration
-    cy.contains("Your registration completed").should("be.visible");
+  it("should create an account", () => {
+    cy.visit("/customer/account/create/");
+    cy.get("#firstname").type(user.firstName);
+    cy.get("#lastname").type(user.lastName);
+    cy.get("#email_address").type(user.email);
+    cy.get("#password").type(user.password);
+    cy.get("#password-confirmation").type(user.password);
+    cy.get('button[title="Create an Account"]').click();
+    cy.url().should("include", "/customer/account/");
   });
 });
